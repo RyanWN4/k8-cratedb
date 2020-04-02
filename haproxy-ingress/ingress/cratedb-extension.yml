@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: crate
+spec:
+  rules:
+  - host: crate.n4monitoring
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: crate-headless
+          servicePort: 4200

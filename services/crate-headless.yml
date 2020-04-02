@@ -1,0 +1,13 @@
+#Creates a headless service to return Pod IP address used for Ingress
+apiVersion: v1
+kind: Service
+metadata:
+  name: crate-headless
+spec:
+  clusterIP: None # <--
+  selector:
+    app: crate
+  ports:
+    - protocol: TCP
+      port: 4200
+      targetPort: 4200
