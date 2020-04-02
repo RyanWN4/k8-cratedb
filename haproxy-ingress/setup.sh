@@ -5,8 +5,10 @@ kubectl run ingress-default-backend \
   --limits=cpu=10m,memory=20Mi \
   --expose
 
-#Check if it's running
-kubectl get pod
-
 #Create configmap for storing HAProxy config
 kubectl create configmap haproxy-ingress
+
+
+kubectl create -f deployment/haproxy-ingress.yml
+
+kubectl create -f ingress/cratedb-extension.yml
